@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home_nav"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="@string/home"
+        tools:showAsAction="ifRoom"/>
+
+
+    <item
+        android:id="@+id/call_nav"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="@string/call"
+        tools:showAsAction="always"/>
+
+
+
+    <item
+        android:id="@+id/wish_nav"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/wishlist"
+        tools:showAsAction="always"/>
+
+
+   </menu>

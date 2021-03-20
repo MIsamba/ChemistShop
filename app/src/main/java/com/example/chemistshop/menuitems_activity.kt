@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.annotation.NonNull
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -16,10 +17,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_menuitems_activity.*
 
 class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -32,10 +35,16 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             startActivity(
-                Intent(this, wish_activity::class.java)
+                Intent(this, wish_activity::class.java)   //calling for enqury
             )
 
         }
+     //   adv_item.layoutManager = LinearLayoutManager(this)
+       // adv_item.adapter = AdvRecycleAdapter(this,DataManager.adv)
+
+
+
+
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close
@@ -92,11 +101,12 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
             }
             R.id.nav_track -> {
                 startActivity(Intent(this, wish_activity::class.java))
-            }
+               }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 
 
 }

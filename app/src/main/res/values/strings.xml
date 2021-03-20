@@ -1,14 +1,17 @@
 <resources>
-    <string name="app_name">Chemist Shop</string>
+    <string name="app_name">Chemistry Shop</string>
     <string name="title_activity_menuitems_activity">menuitems_activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Welcome Username </string>
     <string name="nav_header_subtitle">User email Address</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Cart</string>
 
     <string name="menu_home">Manage Payment</string>
     <string name="menu_gallery">Order with Prescription</string>
     <string name="menu_slideshow">Track my Order</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="call">Call</string>
+    <string name="home">Home</string>
 </resources>
