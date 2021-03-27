@@ -1,13 +1,14 @@
-package com.example.chemistshop.ui.home
+package com.example.chemistshop.ui.prescription
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class PrescriptionViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Please Upload Prescription"
     }
     val text: LiveData<String> = _text
 }
+

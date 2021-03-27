@@ -3,23 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_payment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/nav_payment"
-        android:name="com.example.chemistshop.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.chemistshop.ui.payment.PaymentFragment"
+        android:label="@string/menu_payment"
+        tools:layout="@layout/fragment_prescription" >
+        <action
+            android:id="@+id/action_nav_payment_to_nav_prescription"
+            app:destination="@id/nav_prescription" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_prescription"
-        android:name="com.example.chemistshop.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.chemistshop.ui.prescription.PrescriptionFragment"
+        android:label="@string/menu_prescription"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_nav_prescription_to_nav_track"
+            app:destination="@id/nav_track" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_track"
-        android:name="com.example.chemistshop.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.chemistshop.ui.track.TrackFragment"
+        android:label="@string/menu_track"
+        tools:layout="@layout/fragment_track_order" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.chemistshop.ui.home.HomeFragment"
+        android:label="@string/menu_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_nav_payment"
+            app:destination="@id/nav_payment" />
+    </fragment>
 </navigation>
