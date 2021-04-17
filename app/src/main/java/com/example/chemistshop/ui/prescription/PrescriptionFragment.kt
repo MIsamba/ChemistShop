@@ -2,6 +2,7 @@ package com.example.chemistshop.ui.prescription
 
 import android.app.Activity
 import android.app.PendingIntent.getActivity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -13,10 +14,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chemistshop.R
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_prescription.*
 
 @Suppress("UNREACHABLE_CODE")
@@ -41,6 +44,9 @@ class PrescriptionFragment : Fragment() {
                 startFileUpload()
 
             }
+            bsend.setOnClickListener {
+                uploadFile()
+             }
 
 
         })
@@ -48,6 +54,28 @@ class PrescriptionFragment : Fragment() {
 
 
 
+
+    }
+    private fun uploadFile() {
+        val pd = ProgressDialog ( activity )
+        pd.setTitle( " Prescription Uploading")
+        pd.show()
+
+        val imageRef = FirebaseStorage.getInstance().reference.child( "images/customerPresc.jpg")
+        imageRef.putFile(filepath)
+
+            .addOnSuccessListener {
+                pd.dismiss()
+                Toast.makeText(activity, "prescription sent successful ", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener {p0 ->
+                pd.dismiss()
+                Toast.makeText(activity, p0.message, Toast.LENGTH_LONG).show()
+            }
+            .addOnProgressListener { p0 ->
+                var progress = (100.0 * p0.bytesTransferred) / p0.totalByteCount
+                pd.setMessage("Uploaded  ${ progress.toInt() } % " )
+            }
 
     }
 

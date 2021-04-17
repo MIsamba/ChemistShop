@@ -5,29 +5,31 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.app.ActivityCompat
-import androidx.core.view.GravityCompat
-import com.example.chemistshop.adapter.MedAdapter
+import com.example.chemistshop.ui.activities.BaseActivity
+import com.example.chemistshop.ui.home.HomeFragment
+import com.example.chemistshop.ui.prescription.PrescriptionFragment
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_menuitems.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
-class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class GeneralActivity : BaseActivity() /*, NavigationView.OnNavigationItemSelectedListener*/ {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    lateinit var toggle : ActionBarDrawerToggle
 
     val phone = "0000000000"
     val REQUEST_PHONE_CALL = 1
@@ -35,14 +37,13 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menuitems)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
+      /*
 
         fab.setOnClickListener {
 
             if (ActivityCompat.checkSelfPermission(
-                    this,Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
+                    this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(
                     this,
@@ -53,21 +54,10 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startCall()
             }
         }
-    
 
 
 
-
-
-        // val fab: FloatingActionButton = findViewById(R.id.fab)
-        //fab.setOnClickListener { view ->
-          //  startActivity(
-            //    Intent(this, wish_activity::class.java)
-            //)
-
-        //}
-
-        val toggle = ActionBarDrawerToggle(
+         toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
@@ -80,15 +70,33 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-               R.id.homeFragment,R.id.nav_payment, R.id.nav_prescription, R.id.nav_track
-            ), drawerLayout
-        )
+
+        setSupportActionBar(toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        this.appBarConfiguration = AppBarConfiguration(
+            setOf(
+               R.id.nav_home,R.id.nav_payment, R.id.nav_prescription, R.id.nav_track
+            ), drawerLayout
+        )
+
+
+
+    }
+
+
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+
     }
 
     private fun startCall() {
@@ -98,6 +106,7 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
     }
 
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -106,20 +115,6 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
         if(requestCode == REQUEST_PHONE_CALL)startCall()
     }
 
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-                drawer_layout.closeDrawer(GravityCompat.START)
-            } else {
-            super.onBackPressed()
-            }
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menuitems_activity, menu)
-        return true
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
@@ -129,15 +124,15 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
 
-            R.id.homeFragment -> {
-                startActivity(Intent(this, wish_activity::class.java))
+            R.id.nav_home -> {
+                startActivity(Intent(this, HomeFragment::class.java))
             }
 
             R.id.nav_payment -> {
             startActivity(Intent(this, wish_activity::class.java))
             }
             R.id.nav_prescription -> {
-                startActivity(Intent(this, wish_activity::class.java))
+                startActivity(Intent(this, PrescriptionFragment::class.java))
 
             }
             R.id.nav_track -> {
@@ -148,5 +143,6 @@ class menuitems_activity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return true
     }
 
+*/
 
-}
+}}

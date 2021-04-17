@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "311208063872",
+    "project_id": "chemistshop-c236a",
+    "storage_bucket": "chemistshop-c236a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311208063872:android:9170aca7fbe3ce4c474765",
+        "android_client_info": {
+          "package_name": "com.example.chemistshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311208063872-t989jjfuql552sbn3ftbs7dpha5om5g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEWgIXv-Li9JmZDcsNzX_89eTgT663IbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311208063872-t989jjfuql552sbn3ftbs7dpha5om5g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

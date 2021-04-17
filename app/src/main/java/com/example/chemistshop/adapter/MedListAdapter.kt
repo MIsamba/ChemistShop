@@ -14,7 +14,7 @@ class MedListAdapter (
     private val context: Context
     ) : RecyclerView.Adapter<MedListAdapter.IskmedicineViewHolder>() {
 
-        lateinit var iskmedicineList: ArrayList<Iskmedicine>
+        private lateinit var iskmedicineList: ArrayList<Iskmedicine>
 
         override fun onCreateViewHolder(
             parent: ViewGroup,

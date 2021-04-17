@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_payment"
         android:name="com.example.chemistshop.ui.payment.PaymentFragment"
         android:label="@string/menu_payment"
-        tools:layout="@layout/fragment_prescription" >
+        tools:layout="@layout/fragment_payment" >
         <action
             android:id="@+id/action_nav_payment_to_nav_prescription"
             app:destination="@id/nav_prescription" />
@@ -19,7 +19,7 @@
         android:id="@+id/nav_prescription"
         android:name="com.example.chemistshop.ui.prescription.PrescriptionFragment"
         android:label="@string/menu_prescription"
-        tools:layout="@layout/fragment_payment" >
+        tools:layout="@layout/fragment_prescription" >
         <action
             android:id="@+id/action_nav_prescription_to_nav_track"
             app:destination="@id/nav_track" />
@@ -31,9 +31,10 @@
         android:label="@string/menu_track"
         tools:layout="@layout/fragment_track_order" />
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/nav_home"
         android:name="com.example.chemistshop.ui.home.HomeFragment"
-        android:label="@string/menu_home" >
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_nav_payment"
             app:destination="@id/nav_payment" />
